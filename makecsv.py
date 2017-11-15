@@ -75,7 +75,8 @@ def outputCSV(words, out_path):
             print('[Warning] Could not find the meaning of "{0}".'
                   .format(word))
         else:
-            output.append(word + ',' + meaning)
+            # "," を一行に二つ以上書くとダメらしいので置き換える
+            output.append(word + ',' + meaning.replace(',','.'))
 
     # 単語と意味をファイルに出力
     # 文字化けは codecs.open で防げるらしぃ
